@@ -1,0 +1,51 @@
+<!doctype html>
+<html ng-app>
+<head>
+  <link rel='stylesheet' href='style.css' />
+    <script src="http://code.angularjs.org/angular-1.0.0rc11.min.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+    <div class="four"></div>
+    <div class="five"></div>
+    <div class="six"></div>
+    <div class='gif'>
+      <div id='show' ng-controller='AlbumCtrl'>
+        <img src='https://vignette.wikia.nocookie.net/powerlisting/images/b/b6/Explosion_Megumin.gif/revision/latest?cb=20160302023153'/>
+        <audio id='audio' src='thisissparta.swf.mp3' autostart='false'></audio>
+      </div>
+      <div id='countdown' class={{displayButton}} ng-controller="AlbumCtrl">
+        {{counter}} <br />
+        <button ng-click="stop()">CLICK ANYWHERE BUT THIS BUTTON</button>
+      </div>
+    </div>
+</div>
+  <script>
+      for (var i = 1; i <= 16; i++) {
+        var myDiv = document.createElement('div');
+        document.body.appendChild(myDiv);
+      }
+
+      function random(number) {
+        return Math.floor(Math.random()*number);
+      }
+
+      function bgChange() {
+        var rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+        return rndCol;
+      }
+
+      var divs = document.querySelectorAll('div');
+
+      for (var i = 0; i < divs.length; i++) {
+        divs[i].onclick = function(e) {
+          e.target.style.backgroundColor = bgChange();
+        }
+      }
+    </script>
+</body>
+</html>
